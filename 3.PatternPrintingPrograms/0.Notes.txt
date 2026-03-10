@@ -1,0 +1,5 @@
+Rules of Patterns
+1. for the outer loop count the number of lines
+2.for the inner loop , focus on the columns and connect them somehow to the rows
+3. whatever you print them inside the inner for loop.
+4.Observe the symmetry [optional]
