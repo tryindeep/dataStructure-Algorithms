@@ -45,7 +45,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
 
         pattern12(n);
     }

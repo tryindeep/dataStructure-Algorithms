@@ -29,7 +29,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern18(n);
     }
 }

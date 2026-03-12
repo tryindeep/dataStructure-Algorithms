@@ -26,7 +26,6 @@ int main (){
         cin >> n;
         int t;
         pattern1(n);
-
     }
     
 }

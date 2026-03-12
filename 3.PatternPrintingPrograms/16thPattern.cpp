@@ -34,7 +34,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern16(n);
     }
 }

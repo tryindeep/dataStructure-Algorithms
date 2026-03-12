@@ -30,7 +30,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern13(n);
     }
 }

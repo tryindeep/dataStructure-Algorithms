@@ -38,7 +38,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
 
         pattern9(n);
     }

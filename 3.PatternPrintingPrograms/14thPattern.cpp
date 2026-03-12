@@ -32,7 +32,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern14(n);
     }
 }

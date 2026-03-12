@@ -75,7 +75,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern19(n);
     }
 }

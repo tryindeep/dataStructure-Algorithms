@@ -40,7 +40,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern22(n);
     }
 }

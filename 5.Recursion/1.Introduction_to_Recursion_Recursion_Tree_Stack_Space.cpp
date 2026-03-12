@@ -2,7 +2,7 @@
 // --> When a function calls itself. Until a specified
 //     condition met.
 
-// Please check notes on this topic 
+// Please check notes on this topic (R)
 
 #include <iostream>
 using namespace std;

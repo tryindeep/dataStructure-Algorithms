@@ -42,7 +42,7 @@ int main()
     {
         int n;
         cin >> n;
-        int t;
+
         pattern17(n);
     }
 }
