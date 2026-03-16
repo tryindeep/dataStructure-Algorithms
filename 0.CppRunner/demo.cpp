@@ -1,30 +1,57 @@
-// #include <iostream>
-// using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
-// int fib(int n)
-// {
-//     if (n <= 1)
-//         return n;
-//     return (fib(n - 1) + fib(n - 2));
-// }
+int findPartition(vector<int> &arr, int low, int high)
+{
+    int i = low;
+    int j = high;
+    int pivot = arr[low];
+    while (i < j)
+    {
+        while (arr[i] <= pivot && i <= high - 1)
+        {
+            i++;
+        }
+        while (arr[j] > pivot && j >= low + 1)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            swap(arr[i], arr[j]); 
+        }
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+void quick_sort(vector<int> &arr, int low, int high)
+{
+    if (low < high)
+    {
+        int partitionIndex = findPartition(arr, low, high);
+        quick_sort(arr, low, partitionIndex - 1);
+        quick_sort(arr, partitionIndex  + 1, high);
+    }
+}
+int main()
+{
 
-// int fib2(int n)
-// {
-//     int p1 = 1, p2 = 0;
-//     for (int i = 2; i <= n; i++)
-//     {
-//         int curr = p1 + p2;
-//         p2 = p1;
-//         p1 = curr;
-      
-//     }
-//     return p1;
-// }
-// int main()
-// {
-//     int n;
-//     cin >> n;
-//     // cout << fib(n);
-//     cout << fib2(n);
-//     return 0;
-// }
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; i++)
+    {
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+        quick_sort(arr, 0, arr.size() - 1); //
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+    }
+    return 0;
+}
