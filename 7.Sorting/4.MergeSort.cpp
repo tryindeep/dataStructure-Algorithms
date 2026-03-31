@@ -32,7 +32,12 @@ void merge(vector<int> &arr, int low, int mid, int high)
         temp.push_back(arr[right]);
         right++;
     }
-
+    // temp stores sorted elements starting from index 0
+    // But in original array, we need to place them from index low → high
+    // So we map:
+    // temp[0] → arr[low]
+    // temp[1] → arr[low+1]
+    // ...
     for (int i = low; i <= high; i++)
     {
         arr[i] = temp[i - low];
