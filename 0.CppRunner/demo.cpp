@@ -1,72 +1,60 @@
+// Explanation:
+//  The longest sequence of consecutive elements in the array is [1, 2, 3, 4],
+// which has a length of 4. This sequence can be formed regardless of the initial order of the elements in the array.
+
+// Example 2:
+// Input:
+//  nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+// Output:
+//  9
+// Explanation:
+//  The longest sequence of consecutive elements in the array is [0, 1, 2, 3, 4, 5, 6, 7, 8], which has a length of 9.
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int merge(vector<int> &arr, int low, int mid, int high)
+int longestSequenceOfConsecutiveElements(vector<int> &nums)
 {
-    int cnt = 0;
-    int left = low;
-    int right = mid + 1;
-    vector<int> temp;
-    while (left <= mid && right <= high)
+    int n = nums.size();
+    if (n == 0)
     {
-        if (arr[left] <= arr[right])
+        return 0;
+    };
+    int longest = 1;
+    unordered_set<int> st;
+    for (int i = 0; i < n; i++)
+    {
+        st.insert(nums[i]);
+    }
+
+    for (auto it : st)
+    {
+        if (st.find(it - 1) == st.end())
         {
-            temp.push_back(arr[left]);
-            left++;
+            int cnt = 1;
+            int x = it;
+            while (st.find(x + 1) != st.end())
+            {
+                x = x + 1;
+                cnt = cnt + 1;
+            }
+            longest = max(longest, cnt);
         }
-        // right smaller
-        else
-        {
-            temp.push_back(arr[right]);
-            cnt += (mid - left+1);
-            right++;
-        }
     }
-    while (left <= mid)
-    {
-        temp.push_back(arr[left]);
-        left++;
-    }
-    while (right <= high)
-    {
-        temp.push_back(arr[right]);
-        right++;
-    }
-    //
-    for (int i = low; i <= high; i++)
-    {
-        arr[i] = temp[i - low];
-    }
-    return cnt;
+    return longest;
 }
-int merge_sort(vector<int> &arr, int low, int high)
-{
-    int cnt = 0;
-    if (low >= high)
-        return cnt;
-    int mid = (low + high) / 2;
-    cnt += merge_sort(arr, low, mid);
-    cnt += merge_sort(arr, mid + 1, high);
-    cnt  += merge(arr, low, mid, high);
-    return cnt;
-}
-int numberOfInversions(vector<int> &arr, int n)
-{
-    return merge_sort(arr, 0, n - 1);
-
-}
-
-
 int main()
 {
-    // Input array
-    vector<int> a = {5, 4, 3, 2, 1};
-    int n = a.size();
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> nums[i];
+    }
+    int ans = longestSequenceOfConsecutiveElements(nums);
 
-    // Count inversions
-    int cnt = numberOfInversions(a, n);
-
-    cout << "The number of inversions are: " << cnt << endl;
+    cout << ans << " ";
 
     return 0;
 }
