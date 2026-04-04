@@ -1,1 +1,1 @@
-4 
+ subarray with XOR is : 4

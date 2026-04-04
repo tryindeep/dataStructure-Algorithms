@@ -1,60 +1,32 @@
-// Explanation:
-//  The longest sequence of consecutive elements in the array is [1, 2, 3, 4],
-// which has a length of 4. This sequence can be formed regardless of the initial order of the elements in the array.
-
-// Example 2:
-// Input:
-//  nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
-// Output:
-//  9
-// Explanation:
-//  The longest sequence of consecutive elements in the array is [0, 1, 2, 3, 4, 5, 6, 7, 8], which has a length of 9.
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int longestSequenceOfConsecutiveElements(vector<int> &nums)
-{
-    int n = nums.size();
-    if (n == 0)
-    {
-        return 0;
-    };
-    int longest = 1;
-    unordered_set<int> st;
-    for (int i = 0; i < n; i++)
-    {
-        st.insert(nums[i]);
+int subarrayWithXORSumK(vector<int> a, int k){
+    int xr = 0;
+    map<int , int> mpp;
+    mpp[xr]++;
+    int cnt = 0 ;
+    for(int i = 0 ; i < a.size() ; i++){
+        xr = xr ^ a[i];
+        int x = xr ^ k;
+        cnt += mpp[x];
+        mpp[xr]++;
     }
-
-    for (auto it : st)
-    {
-        if (st.find(it - 1) == st.end())
-        {
-            int cnt = 1;
-            int x = it;
-            while (st.find(x + 1) != st.end())
-            {
-                x = x + 1;
-                cnt = cnt + 1;
-            }
-            longest = max(longest, cnt);
-        }
-    }
-    return longest;
+    return cnt;
 }
-int main()
-{
-    int n;
+ 
+
+int main (){
+    int n ;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> nums[i];
+    
+    vector<int> a(n);
+    for(int i=0; i < n ; i++){
+        cin >> a[i];
     }
-    int ans = longestSequenceOfConsecutiveElements(nums);
-
-    cout << ans << " ";
-
+    int k;
+    cin >> k;
+    int res = subarrayWithXORSumK(a , k);
+    cout << " subarray with XOR is : " << res;
     return 0;
 }
