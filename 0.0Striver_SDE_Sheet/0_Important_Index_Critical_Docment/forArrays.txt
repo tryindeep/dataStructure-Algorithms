@@ -1,0 +1,10 @@
+1. Kadane's algorithm 53. matrix subarray
+
+2. 75.setcolors => Dutch national flag algorithm 
+=>  [0... low-1] exteamLeft, 
+=>  [low....mid-1] need to be sorted, mid to high 
+=>  [mid+1...n-1] extream right 
+
+3. Rotate matrix by 90 degrees : transpose => reverse
+
+4. Find the Duplicate Number in the array : use tortoise method(slow and fastpointer)
