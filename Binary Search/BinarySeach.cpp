@@ -22,7 +22,7 @@ public:
 };
 
 
-// recursive approach 
+// recursive approach   type 2
 class Solution {
     int BS(vector<int> &nums ,int target ,int low , int high){
             
