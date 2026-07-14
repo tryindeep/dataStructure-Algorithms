@@ -18,7 +18,7 @@ int merge(vector<int> &arr, int low, int mid, int high)
         else
         {
             temp.push_back(arr[right]);
-            cnt += (mid - left+1);
+            cnt += (mid - left + 1);
             right++;
         }
     }
@@ -47,15 +47,13 @@ int merge_sort(vector<int> &arr, int low, int high)
     int mid = (low + high) / 2;
     cnt += merge_sort(arr, low, mid);
     cnt += merge_sort(arr, mid + 1, high);
-    cnt  += merge(arr, low, mid, high);
+    cnt += merge(arr, low, mid, high);
     return cnt;
 }
 int numberOfInversions(vector<int> &arr, int n)
 {
     return merge_sort(arr, 0, n - 1);
-
 }
-
 
 int main()
 {

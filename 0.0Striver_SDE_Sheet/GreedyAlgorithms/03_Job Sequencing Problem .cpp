@@ -3,48 +3,42 @@ using namespace std;
 
 struct Job {
     int id;
-    int dead;
+    int deadline;
     int profit;
 };
 
 class Solution {
 public:
-    // Comparator
-    static bool comparison(Job a, Job b) {
+    static bool comparator(const Job& a ,const Job& b){
         return a.profit > b.profit;
     }
-
-    pair<int, int> JobScheduling(vector<Job>& jobs) {
+    vector<int> JobScheduling(vector<Job>& jobs) {
         int n = jobs.size();
 
-        // Step 1: Sort by profit (descending)
-        sort(jobs.begin(), jobs.end(), comparison);
+        sort(jobs.begin(), jobs.end(),comparator);
 
-        // Step 2: Find max deadline
-        int maxi = 0;
+        int maxDeadline = 0;
         for (auto &job : jobs) {
-            maxi = max(maxi, job.dead);
+            maxDeadline = max(maxDeadline, job.deadline);
         }
 
-        // Step 3: Create slot vector
-        vector<int> slot(maxi + 1, -1);
+        vector<int> slot(maxDeadline + 1, -1);
 
         int countJobs = 0;
-        int jobProfit = 0;
+        int totalProfit = 0;
 
-        // Step 4: Assign jobs
         for (int i = 0; i < n; i++) {
-            for (int j = jobs[i].dead; j > 0; j--) {
-                if (slot[j] == -1) {
-                    slot[j] = i;
+            for (int day = jobs[i].deadline; day > 0; day--) {
+                if (slot[day] == -1) {
+                    slot[day] = jobs[i].id;
                     countJobs++;
-                    jobProfit += jobs[i].profit;
+                    totalProfit += jobs[i].profit;
                     break;
                 }
             }
         }
 
-        return {countJobs, jobProfit};
+        return {countJobs, totalProfit};
     }
 };
 
@@ -57,7 +51,53 @@ int main() {
     };
 
     Solution ob;
-    auto ans = ob.JobScheduling(jobs);
+    vector<int> ans = ob.JobScheduling(jobs);
 
-    cout << ans.first << " " << ans.second << endl;
+    cout << ans[0] << " " << ans[1] << endl;
 }
+
+
+
+
+// 
+// class Solution{  
+// public:  
+//     static bool comparator(const vector<int>& a, const vector<int>& b) {
+//         return a[2] > b[2];   // sort by profit descending
+//     }
+
+//     vector<int> JobScheduling(vector<vector<int>>& Jobs) { 
+//         int n = Jobs.size();
+
+//         sort(Jobs.begin(), Jobs.end(), comparator);
+
+//         int maxDeadline = 0;
+//         for (auto& job : Jobs) {
+//             maxDeadline = max(maxDeadline, job[1]);
+//         }
+
+//         vector<int> slot(maxDeadline + 1, -1);
+
+//         int countJobs = 0;
+//         int totalProfit = 0;
+
+//         for (int i = 0; i < n; i++) {
+//             int id = Jobs[i][0];
+//             int deadline = Jobs[i][1];
+//             int profit = Jobs[i][2];
+
+//             for (int day = deadline; day > 0; day--) {
+//                 if (slot[day] == -1) {
+//                     slot[day] = id;
+//                     countJobs++;
+//                     totalProfit += profit;
+//                     break;
+//                 }
+//             }
+//         }
+
+//         return {countJobs, totalProfit};
+//     } 
+// };
+
+

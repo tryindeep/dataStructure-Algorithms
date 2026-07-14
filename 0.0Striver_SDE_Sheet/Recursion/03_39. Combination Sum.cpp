@@ -31,3 +31,43 @@ public:
         return ans;
     }
 };
+
+
+
+
+
+
+
+
+
+class Solution {
+   void solve (int index, int target , int sumTillNow,vector<int>& candidates, vector<int>& subset,vector<vector<int>>& ans ){
+
+        //base case 
+        if(sumTillNow == target) {
+            ans.push_back(subset);
+            return;
+        }
+        if(sumTillNow > target) return;
+        if(index >= candidates.size()) return;
+
+        // skip ith element
+        solve(index + 1, target, sumTillNow,candidates, subset, ans);
+
+        // take the ith element
+        sumTillNow += candidates[index];
+        subset.push_back(candidates[index]);
+        solve(index, target, sumTillNow,candidates, subset, ans);
+        sumTillNow -= candidates[index]; // backtrack
+        subset.pop_back();// backtrack
+   }
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        int sumTillNow = 0;
+        vector<int> subset;
+        vector<vector<int>> ans;
+        solve(0,target, sumTillNow,candidates, subset, ans);
+        return ans;
+    }
+};
+

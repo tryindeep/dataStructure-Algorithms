@@ -5,7 +5,7 @@ class Node  // struct
 {
 
 public:
-    int data;
+    int data;   
     Node *next;
 
 public:

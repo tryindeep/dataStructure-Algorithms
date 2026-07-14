@@ -9,10 +9,10 @@ public:
         sort(arr.begin(), arr.end());
         sort(dep.begin(), dep.end());
         int n = arr.size();
-        int i = 1;
+        int i = 0;
         int j = 0;
-        int cnt = 1;
-        int maxcnt = 1;
+        int cnt = 0;
+        int maxcnt = 0;
         while (i < n && j < n)
         {
             if (arr[i] <= dep[j])
@@ -42,3 +42,33 @@ int main()
 
     return 0;
 }
+
+
+
+//
+// class Solution{
+//     public:
+//     int findPlatform(vector<int>& Arrival, vector<int>& Departure){
+//         //your code goes here
+//         sort(Arrival.begin(), Arrival.end());
+//         sort(Departure.begin(), Departure.end());
+//         int n = Arrival.size();
+//         int i=0;
+//         int j=0;
+//         int count=0;
+//         int maxCount=0;
+
+//         while(i < n && j < n ){
+//             if(Arrival[i] <= Departure[j]){
+//                 i++;
+//                 count++;
+//             }else{
+//                 j++;
+//                 count--;
+//             }
+
+//             maxCount = max(count,maxCount);
+//         } 
+//         return maxCount;
+//     }
+// };

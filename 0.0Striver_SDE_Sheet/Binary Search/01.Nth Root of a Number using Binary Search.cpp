@@ -1,34 +1,34 @@
-// class solution {
+class solution {
 
-//     int Power(long long mid , int n , int m ){
-//         long long ans = 1;
-//         for(int i=0; i < n ; i++){
-//             ans *= mid;
-//             if(ans > m) return 2; 
-//         }
-//         if(ans == m ) return 1;
-//         return 0; 
-//     }
-//     public: 
-//     int nthRoot(int n , int m ){
-//         if(m == 0) return 0;
-//         if(n == 1) return m;
+    int Power(long long mid , int n , int m ){
+        long long ans = 1;
+        for(int i=0; i < n ; i++){
+            ans *= mid;
+            if(ans > m) return 2; 
+        }
+        if(ans == m ) return 1;
+        return 0; 
+    }
+    public: 
+    int nthRoot(int n , int m ){
+        if(m == 0) return 0;
+        if(n == 1) return m;
         
-//         long long low = 1;
-//         long long high = m;
+        long long low = 1;
+        long long high = m;
         
-//         while(low <= high){
-//             long long mid = low + (high - low )/2;
+        while(low <= high){
+            long long mid = low + (high - low )/2;
 
-//             int res = Power(mid, n, m);
-//             if(res == 1) return (int)mid;
-//             else if(res == 0 ) return low = mid +1;
-//             else return high = mid -1;
-//         }
+            int res = Power(mid, n, m);
+            if(res == 1) return (int)mid;
+            else if(res == 0 ) return low = mid +1;
+            else return high = mid -1;
+        }
 
-//         return -1;
-//     }
-// };
+        return -1;
+    }
+};
 
 
 

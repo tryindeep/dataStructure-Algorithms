@@ -56,3 +56,32 @@ public:
     }
 };
 
+// // if we required the indexes
+// class Solution {
+// public:
+//         vector<int> maxSubArray(vector<int>& nums) {
+//         long long maxSum = INT_MIN;
+//         long long sum = 0;
+//         long long start = 0;
+//         long long ansStart = -1;
+//         long long ansEnd = -1;
+
+//         for(int i = 0; i< nums.size(); i++){
+//             if(sum == 0){
+//                 start = i;
+//             }
+//             sum += nums[i];
+//             if(sum > maxSum){
+
+//                 maxSum = sum;
+//                 ansStart = start;
+//                 ansEnd = i;
+
+//             }
+//             if(sum < 0){
+//                 sum =0;
+//             }
+//         }
+//         return {ansStart , ansEnd};
+//     }
+// }; 

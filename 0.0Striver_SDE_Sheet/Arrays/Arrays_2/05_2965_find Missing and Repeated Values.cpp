@@ -8,7 +8,7 @@ public:
         long N = n * n;
 
         long long sum = 0 , sqSum=0;
-        // actual sum and sqaureSum  
+        // actual sum and squareSum  
         for(int i = 0; i<n; i++){
             for(int j = 0; j<n; j++){
                 long long val = grid[i][j];

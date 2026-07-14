@@ -6,32 +6,34 @@ public:
     vector<int> maxMeetings(vector<int>& start, vector<int>& end) {
         int n = start.size();
 
-        // {end, start, index}
         vector<vector<int>> meetings;
-
-        for (int i = 0; i < n; i++) {
-            meetings.push_back({end[i], start[i], i + 1});
+        for(int i=0; i<n; i++){
+            // meeting  end , start , position 
+            meetings.push_back({end[i] , start[i], i+1});
         }
 
-        // Sort by end time
+        // very important
         sort(meetings.begin(), meetings.end());
 
-        vector<int> res;
-        int lastEnd = -1;
+        vector<int> ans;
+        int lastend = -1;
 
-        for (auto &m : meetings) {
+        for(auto& m : meetings){
             int e = m[0];
             int s = m[1];
-            int idx = m[2];
+            int position = m[2];
 
-            if (s > lastEnd) {
-                res.push_back(idx);
-                lastEnd = e;
+            if(s > lastend){
+                ans.push_back(position);
+                lastend = e;
             }
         }
 
-        return res;
+        return ans;
+
+
     }
+
 };
 
 int main() {

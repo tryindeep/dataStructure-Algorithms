@@ -21,7 +21,7 @@ class Solution {
                 substring.push_back(s.substr(index, i - index + 1));
                 solve(i + 1, s, substring, res);
                 substring.pop_back();
-            }
+            }  
         }
     }
 
@@ -33,3 +33,9 @@ public:
         return res;
     }
 };
+
+
+
+
+
+ 

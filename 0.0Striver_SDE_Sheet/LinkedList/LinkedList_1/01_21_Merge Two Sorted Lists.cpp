@@ -1,7 +1,7 @@
 #include<stdio.h>
 using namespace std;
 
-
+//
 //  * Definition for singly-linked list.
   struct ListNode {
         int val;
@@ -11,6 +11,10 @@ using namespace std;
         ListNode(int x, ListNode *next) : val(x), next(next) {}
   };
 
+
+
+
+// Optimal Solution 
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
