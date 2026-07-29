@@ -48,6 +48,8 @@ public:
                 }
             }
         }
+
+        
         // phse 5 
         // handle the first row 
         if (firstRowZero){
