@@ -36,6 +36,7 @@ vector<int> generateRow(int row ){
 }
 
 // Type the send whole pascal triangle 
+
 // numberOfRows = 4
 vector<int> generateRow1(int row){
     vector<int> temp;
