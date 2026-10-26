@@ -1,1 +1,5 @@
-12 5 8 7 
+ant
+bat
+cat
+apple
+banana

@@ -1,40 +1,29 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node // struct
-{
 
-public:
-    int data;
-    Node *next;
-
-public:
-    Node(int data1)
-    {
-        data = data1;
-        next = nullptr;
+bool comp(string a , string b){
+    if(a.size() != b.size()){
+        return a.size() < b.size();
     }
-};
-Node* convertA2LL(vector<int> &arr)
-{
-    Node* head = new Node(arr[0]);
-    Node* mover = head;
-    for (int i = 1; i < arr.size(); i++)
-    {
-        Node* temp = new Node(arr[i]);
-        mover->next = temp;
-        mover = temp ;
-        // mover = mover.next
-    }
-    return head;
+    return a < b;
 }
-int main()
-{
-    vector<int> arr = {12, 5, 8, 7};
-    Node* head = convertA2LL(arr);
-    Node* temp = head;
-    while(temp){
-        cout << temp->data << " ";
-        temp = temp->next;
+
+int main() {
+    int n ; 
+    cin >> n;
+    
+    vector<string> arr(n);
+
+    for(int i = 0; i < n ; i++){
+        cin >> arr[i];
     }
+
+    sort(arr.begin() , arr.end(), comp);
+
+    for(int i = 0; i < n ; i++){
+        cout << arr[i] << "\n";
+    }
+    return 0;
 }
