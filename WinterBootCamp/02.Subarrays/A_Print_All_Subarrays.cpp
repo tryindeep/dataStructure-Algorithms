@@ -45,8 +45,28 @@ typedef long long LL;
 const LL MOD = 1000000007;
 const LL MOD1 = 998244353;
 
+
+void printSubArrays(int A[], int l,int r){
+    for(int i = l; i<= r; i++){
+        cout << A[i] << " ";
+    }
+    cout << endl;
+}
 void solve() {
-    
+    int n ; 
+    cin >> n;
+
+    int A[n];
+    for(int i = 0; i<n; i++){
+        cin >> A[i] ;
+    }
+
+    for(int l = 0; l<n; l++){
+        for(int r=l; r<n; r++){
+            printSubArrays(A,l,r);
+        }
+    }
+
 }
 
 int main() {
@@ -54,7 +74,7 @@ int main() {
     cin.tie(nullptr);
     cout << fixed << setprecision(9);
     int test = 1;
-    cin >> test;
+    // cin >> test;
     while (test--)
         solve();
     return 0;
